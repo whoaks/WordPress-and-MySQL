@@ -4,7 +4,7 @@ config_context_cluster = "minikube"
 
 resource "kubernetes_deployment" "example" {
   metadata {
-    name = "myreplica"
+    name = "mysql"
   }
 
 spec {
@@ -33,7 +33,18 @@ spec {
         name = "MYSQL_ROOT_PASSWORD"
         value = "chiku"
         }
-
+env {
+        name = "MYSQL_DATABASE"
+        value = "myinfo"
+        }
+env {
+        name = "MYSQL_USER"
+        value = "aks07"
+        }
+env {
+        name = "MYSQL_PASSWORD"
+        value = "chiku"
+        }
         }
       }
     }
