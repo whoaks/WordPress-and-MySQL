@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: wordpress
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      dc: winterfell
+      env: north
+  template:
+    metadata:
+      name: wppod
+      labels:
+        dc: winterfell
+        env: north
+    spec:
+      containers:
+      - name: "conwp"
+        image: "wordpress:4.8-apache"
